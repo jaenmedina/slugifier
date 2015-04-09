@@ -13,6 +13,11 @@ class Slugifier {
     private $wordsToExclude;
 
     /**
+     * @var array
+     */
+    private $rules;
+
+    /**
      * @param $text
      * @return string
      */
@@ -23,6 +28,9 @@ class Slugifier {
         }
         $text = $this->handleWhiteSpaces($text);
         $text = mb_strtolower($text, 'UTF-8');
+        if($this->rules){
+            $text = strtr($text, $this->rules);
+        }
         return $text;
     }
 
@@ -56,6 +64,28 @@ class Slugifier {
      */
     public function excludeWords($wordsToExclude){
         $this->wordsToExclude = $wordsToExclude;
+    }
+
+    /**
+     * @param string $key
+     * @param string $replacement
+     */
+    public function addRule($key, $replacement){
+        $this->rules[$key] = $replacement;
+    }
+
+    /**
+     * @param array $rules
+     */
+    public function addRules($rules){
+        $this->rules = $this->rules ? array_merge($this->rules, $rules) : $rules;
+    }
+
+    /**
+     * @param array $rules
+     */
+    public function setRules($rules){
+        $this->rules = $rules;
     }
 
 }

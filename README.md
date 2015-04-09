@@ -6,7 +6,7 @@ A simple php library to generate slugs.
 Version
 ----
 
-0.2.0
+0.3.0
 
 
 Install with composer
@@ -16,7 +16,7 @@ Add the package dependency jaenmedina/slugifier in your composer.json
 ```sh
 {
     "require": {
-        "jaenmedina/slugifier": "0.2.0"
+        "jaenmedina/slugifier": "0.3.0"
     }
 }
 ```
@@ -48,6 +48,16 @@ $slugifier = new Slugifier();
 $slugifier->excludeWords(["world", "How", "is"]);
 $slug = $slugifier->slugify("Hello, world! How is everybody?");
 echo $slug; // prints "hello-everybody"
+```
+
+To add specific mapping rules you can use the addRule, addRules and setRules functions:
+```sh
+$slugifier = new Slugifier();
+$slugifier->setRules(["é" => "e"]);
+$slugifier->addRule("ñ", "n");
+$slugifier->addRules(["ü" => "u"]);
+$slug = $slugifier->slugify("Intenté Español Pingüino");
+echo $slug; // prints "intente-espanol-pinguino"
 ```
 
 License
