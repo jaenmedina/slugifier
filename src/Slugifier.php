@@ -8,11 +8,19 @@ class Slugifier {
     private $separator = '-';
 
     /**
+     * @var array
+     */
+    private $wordsToExclude;
+
+    /**
      * @param $text
      * @return string
      */
     public function slugify($text){
         $text = $this->deletePunctuationMarks($text);
+        if($this->wordsToExclude){
+            $text = WordExcluder::excludeWordsFromText($text, $this->wordsToExclude);
+        }
         $text = $this->handleWhiteSpaces($text);
         $text = mb_strtolower($text, 'UTF-8');
         return $text;
@@ -41,6 +49,13 @@ class Slugifier {
      */
     public function setSeparator($separator){
         $this->separator = $separator;
+    }
+
+    /**
+     * @param array $wordsToExclude
+     */
+    public function excludeWords($wordsToExclude){
+        $this->wordsToExclude = $wordsToExclude;
     }
 
 }

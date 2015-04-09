@@ -20,4 +20,13 @@ class SlugifierTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('hello_world', $slug);
     }
 
+    public function testSlugifyExcludingWords(){
+        $slugifier = new Slugifier();
+        $slugifier->excludeWords(['world', 'How', 'is']);
+
+        $slug = $slugifier->slugify('Hello, world! How is everybody?');
+
+        $this->assertEquals('hello-everybody', $slug);
+    }
+
 }
