@@ -22,7 +22,7 @@ class SlugifierTest extends PHPUnit_Framework_TestCase {
 
     public function testSlugifyExcludingWords(){
         $slugifier = new Slugifier();
-        $slugifier->excludeWords(['world', 'How', 'is']);
+        $slugifier->excludeWords(array('world', 'How', 'is'));
 
         $slug = $slugifier->slugify('Hello, world! How is everybody?');
 
@@ -45,7 +45,7 @@ class SlugifierTest extends PHPUnit_Framework_TestCase {
     public function testAddRules(){
         $simpleString = "Intenté Español Pingüino";
         $slugifier = new Slugifier();
-        $slugifier->addRules(["é" => "e", "ñ" => "n", "ü" => "u"]);
+        $slugifier->addRules(array("é" => "e", "ñ" => "n", "ü" => "u"));
 
         $slug = $slugifier->slugify($simpleString);
 
@@ -55,7 +55,7 @@ class SlugifierTest extends PHPUnit_Framework_TestCase {
     public function testSetRules(){
         $simpleString = "Intenté Español Pingüino";
         $slugifier = new Slugifier();
-        $rules = ["é" => "e", "ñ" => "n", "ü" => "u"];
+        $rules = array("é" => "e", "ñ" => "n", "ü" => "u");
         $slugifier->setRules($rules);
 
         $slug = $slugifier->slugify($simpleString);
@@ -66,9 +66,9 @@ class SlugifierTest extends PHPUnit_Framework_TestCase {
     public function testCombineRuleCreationMethods(){
         $simpleString = "Intenté Español Pingüino";
         $slugifier = new Slugifier();
-        $slugifier->setRules(["é" => "e"]);
+        $slugifier->setRules(array("é" => "e"));
         $slugifier->addRule("ñ", "n");
-        $slugifier->addRules(["ü" => "u"]);
+        $slugifier->addRules(array("ü" => "u"));
 
         $slug = $slugifier->slugify($simpleString);
 

@@ -6,7 +6,7 @@ A simple php library to generate slugs.
 Version
 ----
 
-0.3.0
+0.3.1
 
 
 Install with composer
@@ -16,7 +16,7 @@ Add the package dependency jaenmedina/slugifier in your composer.json
 ```sh
 {
     "require": {
-        "jaenmedina/slugifier": "0.3.0"
+        "jaenmedina/slugifier": "0.3.1"
     }
 }
 ```

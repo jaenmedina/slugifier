@@ -1,7 +1,7 @@
 {
     "name": "jaenmedina/slugifier",
     "description": "A simple php library to generate slugs.",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "type": "library",
     "keywords": ["slug", "php", "slugify", "slugifier"],
     "homepage": "http://www.slugifier.com",

@@ -4,7 +4,7 @@ class WordExcluderTest extends PHPUnit_Framework_TestCase {
 
     public function testExcludeWords(){
         $text = 'You can find more information in the book';
-        $wordsToExclude = ['can', 'more', 'information', 'in', 'You'];
+        $wordsToExclude = array('can', 'more', 'information', 'in', 'You');
 
         $result = WordExcluder::excludeWordsFromText($text, $wordsToExclude);
 
@@ -13,7 +13,7 @@ class WordExcluderTest extends PHPUnit_Framework_TestCase {
 
     public function testExcludeWordsIsNotCaseSensitive(){
         $text = 'You Will Be Here';
-        $wordsToExclude = ['will', 'here'];
+        $wordsToExclude = array('will', 'here');
 
         $result = WordExcluder::excludeWordsFromText($text, $wordsToExclude);
 
