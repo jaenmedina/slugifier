@@ -1,5 +1,7 @@
 Slugifier
 =========
+[![Build Status](https://travis-ci.org/jaenmedina/slugifier.svg?branch=master)](https://travis-ci.org/jaenmedina/slugifier)
+
 A simple php library to generate slugs.
 
 
