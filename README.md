@@ -1,6 +1,7 @@
 Slugifier
 =========
 [![Build Status](https://travis-ci.org/jaenmedina/slugifier.svg?branch=master)](https://travis-ci.org/jaenmedina/slugifier)
+[![Codacy Badge](https://www.codacy.com/project/badge/882be6a651914327a7187a9212cee7fb)](https://www.codacy.com/app/jaen-medina/slugifier)
 
 A simple php library to generate slugs.
 
